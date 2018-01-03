@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-light navbar-fixed-top" style="background-color: #ffffff;">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="@Url.Action("index", "home")">
+                    <img src="@Url.Content("http://aprovacoes.objetivoedu.com.br/shared/images/logo_objetivo.png")" class="d-inline-block align-top"  alt="home" with="42" height="50"/>
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Lista de Alunos", "index", "cadastAlunos")</li>
+                    <li>@Html.ActionLink("Cadastro de alunos", "Create", "cadastAlunos")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer >
+            <div class="col-md-12">
+                <div class="col-md-7 text-center">
+                    <p>&copy; @DateTime.Now.Year - Desenvolvido por Ícaro Martins dos Santos</p>
+                    <a href="@Url.Action("index", "home")">
+                        <img src="@Url.Content("http://aprovacoes.objetivoedu.com.br/shared/images/logo_objetivo.png")" class="d-inline-block align-top" alt="home" with="42" height="50" />
+                    </a>
+                </div>
+                <div class="col-md-5">
+                    <img data-src="holder.js/500x500/auto" alt="500x500" style="width: 400px; height: 200px;" src="http://www.objetivosorocaba.com.br/hot-sites/enem/shared/images/alunos.png" data-holder-rendered="true">
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
